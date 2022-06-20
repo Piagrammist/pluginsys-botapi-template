@@ -1,0 +1,9 @@
+.idea/
+.vscode/
+
+vendor/
+composer.lock
+
+src/get_updates.php
+src/plugins.cache
+src/error_log.txt

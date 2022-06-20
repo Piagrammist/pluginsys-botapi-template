@@ -1,0 +1,14 @@
+{
+    "require": {
+        "piagrammist/pluginsys-botapi": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Piagrammist\\PluginSys\\BotAPITemplate\\": "src"
+        },
+        "files": [
+            "src/config.php",
+            "src/functions.php"
+        ]
+    }
+}
