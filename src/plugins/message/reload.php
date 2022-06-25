@@ -10,5 +10,6 @@ return function (array $message) {
             'chat_id' => $message['chat']['id'],
             'text'    => "Plugins were reloaded!",
         ]);
+        exit;
     }
 };

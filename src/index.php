@@ -22,11 +22,6 @@ $update  = json_decode(file_get_contents('php://input'), true);
 $manager = is_file(PLUGIN_CACHE)
     ? unserialize(file_get_contents(PLUGIN_CACHE))
     : new PluginManager(PLUGIN_DIR);
-register_shutdown_function(static function () use ($manager) {
-    if (!is_file(PLUGIN_CACHE) || time() - filemtime(PLUGIN_CACHE) > CACHE_LIMIT_TIME) {
-        file_put_contents(PLUGIN_CACHE, serialize($manager));
-    }
-});
 
 foreach ($update as $updateType => $data) {
     if (is_numeric($data)) {
@@ -34,4 +29,8 @@ foreach ($update as $updateType => $data) {
     }
     $manager->get(   'any'   )->executeAll($update);
     $manager->get($updateType)->executeAll( $data );
+}
+
+if (!is_file(PLUGIN_CACHE) || time() - filemtime(PLUGIN_CACHE) > CACHE_LIMIT_TIME) {
+    file_put_contents(PLUGIN_CACHE, serialize($manager));
 }
