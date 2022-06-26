@@ -11,8 +11,8 @@ function post(string $method, array $params=[]): array {
         \CURLOPT_POSTFIELDS     => $params,
         \CURLOPT_RETURNTRANSFER => true,
 
-        \CURLOPT_PROXY    => '127.0.0.1:10808',
-        CURLOPT_PROXYTYPE => \CURLPROXY_SOCKS5,
+        \CURLOPT_PROXY     => '127.0.0.1:10808',
+        \CURLOPT_PROXYTYPE => \CURLPROXY_SOCKS5,
     ]);
     $result = \curl_exec($ch);
 

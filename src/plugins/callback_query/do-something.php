@@ -3,7 +3,7 @@
 use function Piagrammist\PluginSys\BotAPITemplate\post;
 
 
-return function (array $callback) {
+return function (array $callback, $_) {
     if ($callback['data'] === 'doSomething') {
         post('editMessageText', [
             'chat_id'    => $callback['message']['chat']['id'],

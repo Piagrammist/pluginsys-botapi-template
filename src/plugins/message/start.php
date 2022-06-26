@@ -3,7 +3,7 @@
 use function Piagrammist\PluginSys\BotAPITemplate\post;
 
 
-return function (array $message) {
+return function (array $message, $_) {
     if ($message['text'] === '/start') {
         post('sendMessage', [
             'chat_id'      => $message['chat']['id'],

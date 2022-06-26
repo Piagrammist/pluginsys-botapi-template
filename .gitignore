@@ -4,7 +4,6 @@
 vendor/
 composer.lock
 
-src/get_updates.php
+src/error_log
 src/update.json
 src/plugins.cache
-src/error_log.txt

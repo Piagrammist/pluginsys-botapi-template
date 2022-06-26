@@ -3,9 +3,8 @@
 use Piagrammist\PluginSys\BotAPI\PluginManager;
 use function Piagrammist\PluginSys\BotAPI\path;
 
-ini_set('log_errors', '1');
-ini_set('error_log' , 'error_log.txt');
-error_reporting(E_ALL & ~E_DEPRECATED);
+ini_set('log_errors'     , '1');
+ini_set('error_reporting', E_ALL & ~E_DEPRECATED);
 
 require '../vendor/autoload.php';
 
@@ -27,8 +26,8 @@ foreach ($update as $updateType => $data) {
     if (is_numeric($data)) {
         continue;
     }
-    $manager->get(   'any'   )->executeAll($update);
-    $manager->get($updateType)->executeAll( $data );
+    $manager->get(   'any'   )->executeAll($update, $manager);
+    $manager->get($updateType)->executeAll( $data , $manager);
 }
 
 if (!is_file(PLUGIN_CACHE) || time() - filemtime(PLUGIN_CACHE) > CACHE_LIMIT_TIME) {
